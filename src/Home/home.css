@@ -27,45 +27,8 @@
     border-bottom: 1px solid rgba(51, 51, 51, 1);
 }
 
-.profile-content {
-    border-bottom: 1px solid rgba(51, 51, 51, .2);
-    padding: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.profile-content-img {
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-content-img img {
-    width: 110px;
-    height: 110px;
-    border: 1px solid rgba(51, 51, 51, .2);
-    border-radius: 50%;
-}
-
-.profile-content-info {
-    width: 70%;
-}
-
-.profile-content-title {
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: 2em;
-    padding: 0px;
-}
-
-.profile-content-info span {
-    font-size: .9em;
-    font-weight: 400;
-}
-
-.profile-content-data {
-    padding: 10px;
-    padding-left: 20px;
+@media (max-width: 768px) {
+    .profile-list {
+        width: 90%;
+    }
 }
