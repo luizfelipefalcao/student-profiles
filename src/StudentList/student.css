@@ -1,0 +1,116 @@
+.profile-content {
+    border-bottom: 1px solid rgba(51, 51, 51, .2);
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profile-content-img {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-content-img img {
+    width: 110px;
+    height: 110px;
+    border: 1px solid rgba(51, 51, 51, .2);
+    border-radius: 50%;
+}
+
+.profile-content-info {
+    width: 70%;
+}
+
+.profile-content-info-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-content-info-header i {
+    font-size: 2.5em;
+    color: rgba(51, 51, 51, .4);
+}
+
+.profile-content-title {
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 2em;
+    padding: 0px;
+}
+
+.profile-content-info span {
+    font-size: .9em;
+    font-weight: 400;
+}
+
+.profile-content-data {
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.profile-content-data-grades {
+    padding: 10px;
+    padding-left: 0px;
+    width: 23%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-list-search-new-tag {
+    width: max-content;
+    padding: 5px;
+    padding-left: 0px;
+    margin-top: 10px;
+}
+
+.profile-list-search-new-tag span {
+    background-color: rgba(218, 218, 218, 1);
+    border-radius: 3px;
+    padding: 7px;
+    margin-right: 3px;
+}
+
+@media (max-width:768px) {
+    .profile-content-img img {
+        width: 90px;
+        height: 90px;
+    }
+    .profile-content-info span {
+        font-size: .7;
+    }
+    .profile-content-title {
+        font-size: 1.3em;
+    }
+    .profile-content-data-grades {
+        width: 40%;
+    }
+}
+
+@media (min-width: 769px) {
+    .profile-content-info span {
+        font-size: .7;
+    }
+    .profile-content-title {
+        font-size: 1.5em;
+    }
+    .profile-content-data-grades {
+        width: 33%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .profile-content-data-grades {
+        width: 33%;
+    }
+}
+
+@media (min-width: 1295px) {
+    .profile-content-data-grades {
+        width: 23%;
+    }
+}

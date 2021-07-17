@@ -7,9 +7,9 @@ const Home = () => {
     const [profiles, setProfiles] = useState([]);
     const [loading, setLoading] = useState(false);
     const [searchName, setSearchName] = useState('');
-    const [filteredSearchName, setFilteredSearchName] = useState([]);
     const [searchTag, setSearchTag] = useState('');
-    const [filteredSearchTag, setFilteredSearchTag] = useState([]);
+    const [tag, setTag] = useState('');
+    const [filteredSearchName, setFilteredSearchName] = useState([]);
 
     const fetchData = async () => {
         await fetch(`https://api.hatchways.io/assessment/students`)
@@ -17,6 +17,10 @@ const Home = () => {
             .then(({ students }) => setProfiles(students))
             .then(setLoading(false));
     };
+
+    const handleTag = (e) => {
+        setSearchTag(e.target.value);
+    }
 
     useEffect(() => {
         setLoading(true);
@@ -50,7 +54,7 @@ const Home = () => {
                             type='text'
                             value={searchTag}
                             placeholder='Search by tag'
-                            onChange={e => setSearchTag(e.target.value)}
+                            onChange={handleTag}
                         />
                     </div>
                     {
@@ -68,7 +72,7 @@ const Home = () => {
                             </>
                         ) : searchName === '' || searchTag !== '' ? (
                             <>
-                                <p>filtered by searchTag</p>
+                                <p>{tag}</p>
                             </>
                         ) : null
                     }
@@ -79,3 +83,4 @@ const Home = () => {
 }
 
 export default Home;
+
