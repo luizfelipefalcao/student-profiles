@@ -9,9 +9,6 @@ This project uses lot of stuff as:
 - ReactJs
 - CSS
 - React-Icons
-- React-Router-Dom
-- {JSON} Placeholder (https://jsonplaceholder.typicode.com/users)
-
 
 ## Getting Started
 
