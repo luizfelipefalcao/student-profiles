@@ -61,9 +61,14 @@
 
 .profile-content-grades-item {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     width: 23%;
+}
+
+.profile-content-grades-item span {
+    width: max-content;
+
 }
 
 .profile-list-search-new-tag {

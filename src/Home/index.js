@@ -11,6 +11,7 @@ const Home = () => {
     const [searchName, setSearchName] = useState('');
     const [searchTag, setSearchTag] = useState('');
     const [tag, setTag] = useState('');
+    // const [expandButton, setExpandButton] = useState(false);
     const [filteredSearchName, setFilteredSearchName] = useState([]);
 
     const fetchData = async () => {
@@ -27,8 +28,8 @@ const Home = () => {
 
     useEffect(() => {
         setFilteredSearchName(
-            profiles.filter((usersItem) =>
-                usersItem.firstName.toLowerCase().includes(searchName.toLowerCase())
+            profiles.filter((profileItem) =>
+                profileItem.firstName.toLowerCase().includes(searchName.toLowerCase())
             )
         );
     }, [searchName, profiles]);
@@ -45,7 +46,7 @@ const Home = () => {
                         searchName === '' && searchTag === '' ? (
                             <>
                                 {profiles.map((list, id) => (
-                                    <StudentList key={id} {...list} />
+                                    <StudentList key={id} {...list}/>
                                 ))}
                             </>
                         ) : searchName !== '' && searchTag === '' ? (
