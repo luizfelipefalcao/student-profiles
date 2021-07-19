@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './home.css';
 
 import StudentList from '../StudentList';
+import SearchByName from '../SearchByName';
+import SearchByTag from '../SearchByTag';
 
 const Home = () => {
     const [profiles, setProfiles] = useState([]);
@@ -17,10 +19,6 @@ const Home = () => {
             .then(({ students }) => setProfiles(students))
             .then(setLoading(false));
     };
-
-    const handleTag = (e) => {
-        setSearchTag(e.target.value);
-    }
 
     useEffect(() => {
         setLoading(true);
@@ -41,22 +39,8 @@ const Home = () => {
                 <h2 style={{ fontWeight: 'bold' }}>Loading ...</h2>
             ) : (
                 <div className='profile-list'>
-                    <div className='profile-list-search-name'>
-                        <input
-                            type='text'
-                            value={searchName}
-                            placeholder='Search by name'
-                            onChange={e => setSearchName(e.target.value)}
-                        />
-                    </div>
-                    <div className='profile-list-search-tag'>
-                        <input
-                            type='text'
-                            value={searchTag}
-                            placeholder='Search by tag'
-                            onChange={handleTag}
-                        />
-                    </div>
+                    <SearchByName handleSearchName={(q) => setSearchName(q)} />
+                    <SearchByTag handleSearchTag={(q) => setSearchTag(q)} />
                     {
                         searchName === '' && searchTag === '' ? (
                             <>

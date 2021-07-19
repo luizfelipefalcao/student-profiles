@@ -52,13 +52,18 @@
     padding-left: 20px;
 }
 
-.profile-content-data-grades {
+.profile-content-grades {
     padding: 10px;
     padding-left: 0px;
-    width: 23%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-content-grades-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 23%;
 }
 
 .profile-list-search-new-tag {
@@ -86,7 +91,7 @@
     .profile-content-title {
         font-size: 1.3em;
     }
-    .profile-content-data-grades {
+    .profile-content-grades-item {
         width: 40%;
     }
 }
@@ -98,19 +103,19 @@
     .profile-content-title {
         font-size: 1.5em;
     }
-    .profile-content-data-grades {
+    .profile-content-grades-item {
         width: 33%;
     }
 }
 
 @media (min-width: 1024px) {
-    .profile-content-data-grades {
+    .profile-content-grades-item {
         width: 33%;
     }
 }
 
 @media (min-width: 1295px) {
-    .profile-content-data-grades {
+    .profile-content-grades-item {
         width: 23%;
     }
 }
