@@ -9,6 +9,7 @@ This project uses lot of stuff as:
 - ReactJs
 - CSS
 - React-Icons
+- API
 
 ## Getting Started
 
