@@ -40,24 +40,24 @@
 
 @media (max-width: 768px) {
     .profile-list {
-        width: 70%;
+        width: 90%;
     }
 }
 
 @media (min-width: 769px) {
     .profile-list {
-        width: 60%;
+        width: 80%;
     }
 }
 
 @media (min-width: 940px) {
     .profile-list {
-        width: 50%;
+        width: 60%;
     }
 }
 
 @media (min-width: 1040px) {
     .profile-list {
-        width: 40%;
+        width: 50%;
     }
 }

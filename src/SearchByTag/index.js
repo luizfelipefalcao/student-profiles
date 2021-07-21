@@ -4,8 +4,8 @@ const SearchByTag = ({ handleSearchTag }) => {
     const [text, setText] = useState('')
 
     const onChange = (q) => {
-        setText(q)
-        handleSearchTag(q)
+        setText(q);
+        handleSearchTag(q);
     }
 
     return (

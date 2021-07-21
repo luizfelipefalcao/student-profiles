@@ -3,28 +3,30 @@ import './student.css';
 
 import { HiPlus, HiMinusSm } from 'react-icons/hi'
 
-const ProfileList = (props) => {
-    const { id, pic, firstName, lastName, email, company, skill, grades, tag } = props;
+const StudentsList = (props) => {
+    const { id, pic, firstName, lastName, email, company, skill, grades } = props;
     const [expandButton, setExpandButton] = useState(false);
-    // const [hidedButton, setHideButton] = useState(false);
+    // const [text, setText] = useState('');
 
-    const handleAddTag = () => {
-        console.log('funciona!!');
-    }
+    // const onChange = (e) => {
+    //     setText(e);
+    // }
 
     const handleExpandButton = () => {
-        setExpandButton(true);
+        setExpandButton(!expandButton);
     };
-
-    const handleHideButton = () => {
-        setExpandButton(false);
-    }
 
     const avarageGrade = grades.map((i) => Number(i)).reduce((a, b) => a + b) / grades.length;
 
     const gradeList = [];
     for (const [index, value] of grades.entries()) {
-        gradeList.push(<span key={index}>Test {index + 1}: {value}%</span>)
+        gradeList.push(
+            <span key={index}>Test {index + 1}: {value}%</span>)
+    };
+
+    const tagList = [];
+    for (const [index, value] of grades.entries()) {
+        tagList.push(<span key={index}>{value}</span>)
     };
 
     return (
@@ -33,13 +35,13 @@ const ProfileList = (props) => {
                 <div className='profile-content-img'>
                     <img
                         src={pic}
-                        alt={pic}
+                        alt=''
                     />
                 </div>
                 <div className='profile-content-info'>
                     <div className='profile-content-info-header'>
                         <div className='profile-content-title'>{firstName} {lastName}</div>
-                        <div>{expandButton ? <i onClick={handleHideButton}><HiMinusSm /></i> : <i onClick={handleExpandButton}><HiPlus /></i>}</div>
+                        <div onClick={handleExpandButton}>{expandButton ? <i><HiMinusSm /></i> : <i><HiPlus /></i>}</div>
                     </div>
                     <div className='profile-content-data'>
                         <span>Email: {email}</span><br />
@@ -57,18 +59,27 @@ const ProfileList = (props) => {
                                 null
                             )
                         }
-                        <div className='profile-list-search-new-tag'>
-                            <span>tag1</span>
-                            <span>tag2</span>
-                        </div>
-                        <div className='profile-list-search-add-tag'>
+
+                        {/* I've tried several times to implement an input to save the data on profiles state and then render the inputed data here 
+                        but I wasn't able to do it. So, I fetch data from grades array and then is rendering here with conditional ternay operator */}
+                        {
+                            !expandButton ? (
+                                <div className='profile-list-search-new-tag'>
+                                    {tagList}
+                                </div>
+                            ) : (
+                                null
+                            )
+                        }
+
+                        {/* <div className='profile-list-search-add-tag'>
                             <input
                                 type='text'
-                                value={tag}
+                                value={text}
                                 placeholder='Add a tag'
-                                onChange={handleAddTag}
+                                onChange={(e) => onChange(e.target.value)}
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
@@ -76,4 +87,4 @@ const ProfileList = (props) => {
     )
 }
 
-export default ProfileList;
+export default StudentsList;

@@ -32,6 +32,7 @@
 
 .profile-content-info-header i {
     font-size: 2.5em;
+    cursor: pointer;
     color: rgba(51, 51, 51, .4);
 }
 

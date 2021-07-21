@@ -10,15 +10,14 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
     const [searchName, setSearchName] = useState('');
     const [searchTag, setSearchTag] = useState('');
-    const [tag, setTag] = useState('');
-    // const [expandButton, setExpandButton] = useState(false);
+    const [filteredByTag, setFilteredByTag] = useState([]);
     const [filteredSearchName, setFilteredSearchName] = useState([]);
 
     const fetchData = async () => {
         await fetch(`https://api.hatchways.io/assessment/students`)
             .then((res) => res.json())
             .then(({ students }) => setProfiles(students))
-            .then(setLoading(false));
+            .then(setLoading(false))
     };
 
     useEffect(() => {
@@ -33,6 +32,13 @@ const Home = () => {
             )
         );
     }, [searchName, profiles]);
+
+    useEffect(() => {
+        setFilteredByTag(
+            profiles.filter((tagItem) =>
+                tagItem.grades.includes(searchTag))
+        );
+    }, [searchTag, profiles]);
 
     return (
         <>
@@ -49,7 +55,7 @@ const Home = () => {
                                     <StudentList key={id} {...list}/>
                                 ))}
                             </>
-                        ) : searchName !== '' && searchTag === '' ? (
+                        ) : searchName !== '' || searchTag === '' ? (
                             <>
                                 {filteredSearchName.map((list, id) => (
                                     <StudentList key={id} {...list} />
@@ -57,7 +63,9 @@ const Home = () => {
                             </>
                         ) : searchName === '' || searchTag !== '' ? (
                             <>
-                                <p>{tag}</p>
+                                {filteredByTag.map((list, id) => (
+                                    <StudentList key={id} {...list} />
+                                ))}
                             </>
                         ) : null
                     }
